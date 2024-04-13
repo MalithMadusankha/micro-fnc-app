@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
+import "./assets/styles/index.scss";
 import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import routes from "./routes";

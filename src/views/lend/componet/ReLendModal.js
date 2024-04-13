@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
+import ReLendForm from "./ReLendForm";
 
 // import UpdateInvestigatorForm from "./UpdateInvestigatorForm";
 
-export default function UpdateModal({ user }) {
+export default function ReLendModal({ lending }) {
   const [isOpen, setIsOpen] = useState(false);
   const [success, setSuccess] = useState(false);
   const toggle = () => {
@@ -13,8 +14,8 @@ export default function UpdateModal({ user }) {
 
   return (
     <>
-      <Button color="success" size="sm" onClick={toggle}>
-        Update
+      <Button color="warning" size="sm" onClick={toggle}>
+        Relend
       </Button>
       <Modal
         isOpen={isOpen}
@@ -23,14 +24,11 @@ export default function UpdateModal({ user }) {
         backdrop={true}
         size="lg"
       >
-        <ModalHeader toggle={toggle}>Update Patient</ModalHeader>
+        <ModalHeader className="text-primary" toggle={toggle}>
+          Relend
+        </ModalHeader>
         <ModalBody>
-          Update
-          {/* <UpdateInvestigatorForm
-            user={user}
-            toggle={toggle}
-            setSuccess={setSuccess}
-          /> */}
+          <ReLendForm />
         </ModalBody>
       </Modal>
     </>

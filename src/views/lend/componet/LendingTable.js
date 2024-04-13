@@ -65,7 +65,7 @@ export default function LendingTable({ data }) {
               </td>
               <td className="text-right">
                 <Link
-                  className="btn btn-primary btn-sm me-2"
+                  className="btn btn-info btn-sm me-2 text-white"
                   to={"/lend/" + key}
                 >
                   View

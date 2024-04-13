@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Card,
   Form,
@@ -11,45 +11,37 @@ import {
   CardBody,
 } from "reactstrap";
 import { FaSearch } from "react-icons/fa";
-import { useParams } from "react-router-dom";
-import NEXT_COLLECTIONS, { LEANDING_COLLECTION } from "../../assets/data.js";
-import LendingTable from "./componet/LendingTable.js";
-import SummaryComponet from "./componet/SummaryComponet.js";
-import NextCollectionComponet from "./componet/NextCollectionComponet.js";
+import NEXT_COLLECTIONS, { INCOME } from "../../assets/data.js";
+import CollectionTable from "./componet/IncomeTable.js";
 import NotificationComponet from "../../componets/NotificationComponet.js";
 import UserProfileComponet from "../../componets/UserProfileComponet.js";
+import { Link, useNavigate } from "react-router-dom";
 import SearchBarAction from "../../componets/SearchBarAction.js";
 import NotificationDetailsComponet from "../../componets/NotificationDetailsComponet.js";
+import NewCollectionModal from "./componet/NewIncomeModal.js";
 
-export default function Home() {
-  const { nic } = useParams();
-  const [data, setData] = useState([]);
-  const [lending, setLending] = useState([]);
+export default function Income() {
+  const navigate = useNavigate();
+
+  const [data, setData] = useState(NEXT_COLLECTIONS);
+  const [collection, setCollection] = useState(INCOME);
   const [isClickNotification, setIsClickNotification] = useState(false);
   const [isClickNotifItem, setIsClickNotifItem] = useState(false);
   const [isClickProfile, setIsClickProfile] = useState(false);
-
+  const [searchOption, setSearchOption] = useState("id");
   const [searchTxt, setSearchTxt] = useState("");
-  const [searchOption, setSearchOption] = useState("");
 
   const notificationViewHandler = (notifNic) => {
     setIsClickNotifItem(false);
     setIsClickNotification(false);
-    setSearchTxt(notifNic);
-    setSearchOption("nic");
-    if (notifNic) {
-      searchHandler();
-    }
+    navigate(`/home/${notifNic}`);
+    searchHandler();
   };
 
   const searchHandler = () => {
     setData(NEXT_COLLECTIONS);
-    setLending(LEANDING_COLLECTION);
+    setCollection(INCOME);
   };
-
-  useEffect(() => {
-    notificationViewHandler(nic === null ? "" : nic);
-  }, []);
 
   return (
     <>
@@ -81,30 +73,22 @@ export default function Home() {
                       <Col>
                         <FormGroup check>
                           <Input
-                            value="nic"
-                            checked={searchOption === "nic"}
-                            onClick={() => setSearchOption("nic")}
+                            value="id"
+                            checked={searchOption === "id"}
+                            onClick={() => setSearchOption("id")}
                             type="radio"
                             name="searchType"
                           />{" "}
-                          NIC
+                          Income ID
                         </FormGroup>
                       </Col>
-                      <Col>
-                        <FormGroup check>
-                          <Input
-                            value="jobId"
-                            checked={searchOption === "jobId"}
-                            onClick={() => setSearchOption("jobId")}
-                            type="radio"
-                            name="searchType"
-                          />{" "}
-                          Job ID
-                        </FormGroup>
-                      </Col>
+
                       <Col>
                         <Button
-                          onClick={searchHandler}
+                          onClick={() => {
+                            setData(NEXT_COLLECTIONS);
+                            setCollection(INCOME);
+                          }}
                           color="info"
                           className="text-white"
                         >
@@ -126,27 +110,26 @@ export default function Home() {
           </Col>
         </Row>
         <div>
-          {/* Next Collection */}
-          <NextCollectionComponet data={data} lending={lending} />
-          {/* Summery  */}
-          <SummaryComponet data={data} />
           {/* Leanding */}
           <Row className="mt-4">
             <Col>
-              <h5 className="text-primary"> Lending History</h5>
+              <h5> Other Income List </h5>
             </Col>
             <Col>
               <h5 className="text-right text-danger pr-1">
-                {data && data.length > 0 ? "Total Lending : " + 15050 : ""}
+                <NewCollectionModal />
+                {data && data.length > 0
+                  ? "Total Other Income : " + 390000
+                  : ""}
               </h5>
             </Col>
           </Row>
-          {lending && lending.length > 0 ? (
+          {collection && collection.length > 0 ? (
             <Row className="m-3 mb-4">
               <Col>
                 <Card className="shadow">
                   <CardBody className="pb-0">
-                    <LendingTable data={lending} />
+                    <CollectionTable data={collection} />
                   </CardBody>
                 </Card>
               </Col>

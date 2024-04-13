@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Card,
   Form,
@@ -11,45 +11,38 @@ import {
   CardBody,
 } from "reactstrap";
 import { FaSearch } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { FaRegUserCircle } from "react-icons/fa";
+import { IoIosNotificationsOutline } from "react-icons/io";
 import NEXT_COLLECTIONS, { LEANDING_COLLECTION } from "../../assets/data.js";
 import LendingTable from "./componet/LendingTable.js";
-import SummaryComponet from "./componet/SummaryComponet.js";
-import NextCollectionComponet from "./componet/NextCollectionComponet.js";
 import NotificationComponet from "../../componets/NotificationComponet.js";
 import UserProfileComponet from "../../componets/UserProfileComponet.js";
+import { Link, useNavigate } from "react-router-dom";
 import SearchBarAction from "../../componets/SearchBarAction.js";
 import NotificationDetailsComponet from "../../componets/NotificationDetailsComponet.js";
 
-export default function Home() {
-  const { nic } = useParams();
-  const [data, setData] = useState([]);
-  const [lending, setLending] = useState([]);
+export default function Lends() {
+  const navigate = useNavigate();
+
+  const [data, setData] = useState(NEXT_COLLECTIONS);
+  const [lending, setLending] = useState(LEANDING_COLLECTION);
   const [isClickNotification, setIsClickNotification] = useState(false);
   const [isClickNotifItem, setIsClickNotifItem] = useState(false);
   const [isClickProfile, setIsClickProfile] = useState(false);
-
+  const [searchOption, setSearchOption] = useState("id");
   const [searchTxt, setSearchTxt] = useState("");
-  const [searchOption, setSearchOption] = useState("");
 
   const notificationViewHandler = (notifNic) => {
     setIsClickNotifItem(false);
     setIsClickNotification(false);
-    setSearchTxt(notifNic);
-    setSearchOption("nic");
-    if (notifNic) {
-      searchHandler();
-    }
+    navigate(`/home/${notifNic}`);
+    searchHandler();
   };
 
   const searchHandler = () => {
     setData(NEXT_COLLECTIONS);
     setLending(LEANDING_COLLECTION);
   };
-
-  useEffect(() => {
-    notificationViewHandler(nic === null ? "" : nic);
-  }, []);
 
   return (
     <>
@@ -65,7 +58,7 @@ export default function Home() {
                     // style={{ width: windowSize.width * 0.7 }}
                   >
                     <Row className="row-cols-lg-auto g-3 align-items-center">
-                      <Col md={5} lg={7}>
+                      <Col md={4} lg={6}>
                         <Label className="visually-hidden" for="search">
                           Search
                         </Label>
@@ -103,8 +96,23 @@ export default function Home() {
                         </FormGroup>
                       </Col>
                       <Col>
+                        <FormGroup check>
+                          <Input
+                            value="lendId"
+                            checked={searchOption === "lendId"}
+                            onClick={() => setSearchOption("lendId")}
+                            type="radio"
+                            name="searchType"
+                          />{" "}
+                          Lend ID
+                        </FormGroup>
+                      </Col>
+                      <Col>
                         <Button
-                          onClick={searchHandler}
+                          onClick={() => {
+                            setData(NEXT_COLLECTIONS);
+                            setLending(LEANDING_COLLECTION);
+                          }}
                           color="info"
                           className="text-white"
                         >
@@ -126,17 +134,16 @@ export default function Home() {
           </Col>
         </Row>
         <div>
-          {/* Next Collection */}
-          <NextCollectionComponet data={data} lending={lending} />
-          {/* Summery  */}
-          <SummaryComponet data={data} />
           {/* Leanding */}
           <Row className="mt-4">
             <Col>
-              <h5 className="text-primary"> Lending History</h5>
+              <h5> Lending List </h5>
             </Col>
             <Col>
               <h5 className="text-right text-danger pr-1">
+                <Link className="btn btn-primary btn-sm me-4" to={"/lend/new"}>
+                  New Lend
+                </Link>
                 {data && data.length > 0 ? "Total Lending : " + 15050 : ""}
               </h5>
             </Col>

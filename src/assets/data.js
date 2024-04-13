@@ -1,18 +1,21 @@
 const NEXT_COLLECTIONS = [
   {
-    date: "2024-03-12",
+    date: "2024-03-04",
     isOverDue: true,
     amount: 2300,
+    jobId: "JOB0005",
   },
   {
-    date: "2024-03-12",
+    date: "2024-03-10",
     isOverDue: false,
     amount: 1500,
+    jobId: "JOB0007",
   },
   {
-    date: "2024-03-12",
+    date: "2024-03-15",
     isOverDue: false,
     amount: 1000,
+    jobId: "JOB0009",
   },
 ];
 
@@ -94,6 +97,57 @@ export const LEANDING_COLLECTION = [
       home: "0112319568",
       nic: "95575521V",
     },
+  },
+];
+
+export const COLLECTIONS = [
+  {
+    date: "2024-03-05",
+    customer: "Nadeesha Lakmal",
+    amount: 2300,
+    return: 2000,
+    product: "Land",
+    collectionId: "COL0005",
+  },
+  {
+    date: "2024-03-10",
+    customer: "Danushka Madushan",
+    amount: 1500,
+    return: 1500,
+    product: "Vechicle",
+    collectionId: "COL0007",
+  },
+  {
+    date: "2024-03-12",
+    customer: "Malith Madusankha",
+    amount: 1000,
+    return: 800,
+    product: "Mobile",
+    collectionId: "COL0009",
+  },
+];
+
+export const INCOME = [
+  {
+    date: "2024-03-03",
+    amount: 230000,
+    note: "Sell necklace",
+    type: "Jewellery",
+    incomeId: "OI00002",
+  },
+  {
+    date: "2024-03-15",
+    amount: 150000,
+    note: "Sell chain",
+    type: "Jewellery",
+    incomeId: "OI00007",
+  },
+  {
+    date: "2024-03-20",
+    amount: 10000,
+    note: "Other thing",
+    type: "Other",
+    incomeId: "OI00009",
   },
 ];
 
