@@ -15,7 +15,7 @@ import NEXT_COLLECTIONS, { INCOME } from "../../assets/data.js";
 import CollectionTable from "./componet/IncomeTable.js";
 import NotificationComponet from "../../componets/NotificationComponet.js";
 import UserProfileComponet from "../../componets/UserProfileComponet.js";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SearchBarAction from "../../componets/SearchBarAction.js";
 import NotificationDetailsComponet from "../../componets/NotificationDetailsComponet.js";
 import NewCollectionModal from "./componet/NewIncomeModal.js";

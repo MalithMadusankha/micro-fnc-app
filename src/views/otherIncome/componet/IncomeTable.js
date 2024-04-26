@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Table } from "reactstrap";
+import { Table } from "reactstrap";
 
 export default function IncomeTable({ data }) {
   return (
