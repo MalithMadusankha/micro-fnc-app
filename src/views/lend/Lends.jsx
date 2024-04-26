@@ -11,8 +11,6 @@ import {
   CardBody,
 } from "reactstrap";
 import { FaSearch } from "react-icons/fa";
-import { FaRegUserCircle } from "react-icons/fa";
-import { IoIosNotificationsOutline } from "react-icons/io";
 import NEXT_COLLECTIONS, { LEANDING_COLLECTION } from "../../assets/data.js";
 import LendingTable from "./componet/LendingTable.js";
 import NotificationComponet from "../../componets/NotificationComponet.js";

@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Label, Media, Badge } from "reactstrap";
+import { Row, Col, Label, Card, Badge, CardBody, Button } from "reactstrap";
 import { useParams } from "react-router-dom";
 import TransactionTable from "../home/componet/TransactionTable";
 import { LEANDING_COLLECTION } from "../../assets/data";
 import ItemSummaryComponet from "../home/componet/ItemSummaryComponet";
 import ImageSlideshow from "../home/componet/ImageSlideshow";
 import ExtranalPartiesComponet from "../home/componet/ExtranalPartiesComponet";
+import NewCollectionModal from "../collection/componet/NewCollectionModal";
+import ReLendModal from "./componet/ReLendModal";
+import PartiallySettelModal from "./componet/PartiallySettelModal";
+import RecoverSecurityModal from "./componet/RecoverSecurityModal";
 
 export default function LendingItem() {
   const [data, setData] = useState({});
@@ -20,9 +24,45 @@ export default function LendingItem() {
     <>
       {data && Object.keys(data).length > 0 ? (
         <div className="container m-3">
+          <div className="d-flex justify-content-between mb-3">
+            <div className="d-flex flex-row">
+              <Card className="shadow me-2">
+                <CardBody className="px-4">
+                  <h5 className="text-center text-primary py-0 my-0"> 1652</h5>
+                  <p className="text-center text-primary py-0 my-0">Lend ID</p>
+                </CardBody>
+              </Card>
+              <Card className="shadow me-2">
+                <CardBody className="px-4">
+                  <h5 className="text-center text-primary py-0 my-0"> Open</h5>
+                  <p className="text-center text-primary py-0 my-0">Status</p>
+                </CardBody>
+              </Card>
+              <Card className="shadow me-2">
+                <CardBody className="px-4">
+                  <h5 className="text-center text-primary py-0 my-0"> Daily</h5>
+                  <p className="text-center text-primary py-0 my-0">Type</p>
+                </CardBody>
+              </Card>
+            </div>
+            <div className="d-flex flex-row">
+              <div>
+                <NewCollectionModal />
+              </div>
+              <div>
+                <ReLendModal />
+              </div>
+              <div className="mx-3">
+                <PartiallySettelModal />
+              </div>
+              <div className="">
+                <RecoverSecurityModal />
+              </div>
+            </div>
+          </div>
           <Row>
             <Col>
-              <h2 className="text-primary"> Lending Details</h2>
+              <h2 className="text-primary"> Security Details</h2>
             </Col>
           </Row>
           <Row className="mt-3">

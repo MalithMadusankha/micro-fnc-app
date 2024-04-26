@@ -6,9 +6,6 @@ export default function TotalSummaryComponet({ data }) {
   return (
     <>
       <Row className="mt-4">
-        <Col>
-          <h5 className="text-primary"> Summary </h5>
-        </Col>
         <Col></Col>
       </Row>
       <Row className="m-3">
@@ -47,6 +44,55 @@ export default function TotalSummaryComponet({ data }) {
             <CardBody className="">
               <h6 className="text-center text-primary"> Collection Sort</h6>
               <h3 className="text-center text-danger mt-3"> 500</h3>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+      <Row className="m-3">
+        <Col lg={3}>
+          <Card className="shadow ">
+            <CardBody className="">
+              <h6 className="text-center text-primary">
+                {" "}
+                Expected Today Collection
+              </h6>
+              <h3 className="text-center text-danger mt-3"> 45000</h3>
+            </CardBody>
+          </Card>
+        </Col>
+
+        <Col lg={3}>
+          <Card className="shadow ">
+            <CardBody className="">
+              <h6 className="text-center text-primary">
+                {" "}
+                Today Total New Lends
+              </h6>
+              <h3 className="text-center text-danger mt-3"> 45000</h3>
+            </CardBody>
+          </Card>
+        </Col>
+
+        <Col lg={3}>
+          <Card className="shadow ">
+            <CardBody className="">
+              <h6 className="text-center text-primary">
+                {" "}
+                Today Total payments
+              </h6>
+              <h3 className="text-center text-danger mt-3"> 45000</h3>
+            </CardBody>
+          </Card>
+        </Col>
+
+        <Col lg={3}>
+          <Card className="shadow ">
+            <CardBody className="">
+              <h6 className="text-center text-primary">
+                {" "}
+                Today Total Brokers Registered
+              </h6>
+              <h3 className="text-center text-danger mt-3"> 45000</h3>
             </CardBody>
           </Card>
         </Col>

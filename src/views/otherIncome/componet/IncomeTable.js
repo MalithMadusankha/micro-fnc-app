@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Table } from "reactstrap";
+import { Table } from "reactstrap";
 
 export default function IncomeTable({ data }) {
   return (
@@ -7,7 +7,7 @@ export default function IncomeTable({ data }) {
       <Table className="align-items-center table-flush" responsive>
         <thead className="thead-light">
           <tr>
-            <th scope="col">Date</th>
+            {/* <th scope="col">Date</th> */}
             <th scope="col">Income ID</th>
             <th scope="col">Income Type</th>
             <th scope="col">Amount</th>
@@ -17,7 +17,7 @@ export default function IncomeTable({ data }) {
         <tbody>
           {data.map((lending, key) => (
             <tr key={key}>
-              <td>{lending.date}</td>
+              {/* <td>{lending.date}</td> */}
               <td>{lending.incomeId}</td>
               <td>
                 <div className="d-flex align-items-center">

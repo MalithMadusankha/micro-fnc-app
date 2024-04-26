@@ -22,13 +22,7 @@ export default function AdminLayout() {
         className="position-absolute bottom-0 m-2"
         style={{ zIndex: 1000 }}
         onClick={toggleSidebar}
-      >
-        {isSidebarVisible ? (
-          <FaArrowAltCircleLeft className="fs-3 text-primary" />
-        ) : (
-          <FaArrowAltCircleRight className="fs-3 text-primary" />
-        )}
-      </div>
+      ></div>
       <div className="row">
         {/* Sidebar */}
         <SideBar isVisible={isSidebarVisible} className="fs-3 text-primary" />

@@ -11,20 +11,21 @@ import {
   CardBody,
 } from "reactstrap";
 import { FaSearch } from "react-icons/fa";
-import NEXT_COLLECTIONS, { INCOME } from "../../assets/data.js";
-import IncomeTable from "./componet/IncomeTable.js";
+import NEXT_COLLECTIONS, { COLLECTIONS } from "../../assets/data.js";
+import CollectionTable from "./componet/CollectionTable.js";
 import NotificationComponet from "../../componets/NotificationComponet.js";
 import UserProfileComponet from "../../componets/UserProfileComponet.js";
 import { useNavigate } from "react-router-dom";
 import SearchBarAction from "../../componets/SearchBarAction.js";
 import NotificationDetailsComponet from "../../componets/NotificationDetailsComponet.js";
-import NewCollectionModal from "./componet/NewIncomeModal.js";
+import NewCollectionModal from "./componet/NewCollectionModal.js";
+import CollectionReportTable from "./componet/CollectionReportTable.js";
 
-export default function Income() {
+export default function CollectionReport() {
   const navigate = useNavigate();
 
   const [data, setData] = useState(NEXT_COLLECTIONS);
-  const [collection, setCollection] = useState(INCOME);
+  const [collection, setCollection] = useState(COLLECTIONS);
   const [isClickNotification, setIsClickNotification] = useState(false);
   const [isClickNotifItem, setIsClickNotifItem] = useState(false);
   const [isClickProfile, setIsClickProfile] = useState(false);
@@ -40,7 +41,7 @@ export default function Income() {
 
   const searchHandler = () => {
     setData(NEXT_COLLECTIONS);
-    setCollection(INCOME);
+    setCollection(COLLECTIONS);
   };
 
   return (
@@ -57,42 +58,55 @@ export default function Income() {
                     // style={{ width: windowSize.width * 0.7 }}
                   >
                     <Row className="row-cols-lg-auto g-3 align-items-center">
-                      <Col md={5} lg={7}>
-                        <Label className="visually-hidden" for="search">
-                          Search
+                      <Col className="d-flex flex-row" md={3} lg={4}>
+                        <Label className="me-2 pt-1" for="from">
+                          From
                         </Label>
                         <Input
-                          id="search"
-                          name="search"
-                          placeholder="search"
-                          type="search"
+                          id="from"
+                          name="from"
+                          placeholder="from"
+                          type="date"
                           value={searchTxt}
                           onChange={(e) => setSearchTxt(e.target.value)}
                         />
                       </Col>
-                      <Col>
-                        <FormGroup check>
-                          <Input
-                            value="id"
-                            checked={searchOption === "id"}
-                            onClick={() => setSearchOption("id")}
-                            type="radio"
-                            name="searchType"
-                          />{" "}
-                          Income ID
-                        </FormGroup>
+                      <Col className="d-flex flex-row" md={3} lg={3}>
+                        <Label className="me-2 pt-1" for="from">
+                          To
+                        </Label>
+                        <Input
+                          id="from"
+                          name="from"
+                          placeholder="from"
+                          type="date"
+                          value={searchTxt}
+                          onChange={(e) => setSearchTxt(e.target.value)}
+                        />
                       </Col>
 
                       <Col>
                         <Button
                           onClick={() => {
                             setData(NEXT_COLLECTIONS);
-                            setCollection(INCOME);
+                            setCollection(COLLECTIONS);
                           }}
                           color="info"
                           className="text-white"
                         >
-                          <FaSearch /> Search
+                          Filter
+                        </Button>
+                      </Col>
+                      <Col>
+                        <Button
+                          onClick={() => {
+                            setData(NEXT_COLLECTIONS);
+                            setCollection(COLLECTIONS);
+                          }}
+                          color="info"
+                          className="text-white"
+                        >
+                          Generate PDF
                         </Button>
                       </Col>
                       <SearchBarAction
@@ -113,13 +127,12 @@ export default function Income() {
           {/* Leanding */}
           <Row className="mt-4">
             <Col>
-              <h5>Today Other Income </h5>
+              <h5> Colection Report </h5>
             </Col>
             <Col>
               <h5 className="text-right text-danger pr-1">
-                <NewCollectionModal />
                 {data && data.length > 0
-                  ? "Total Other Income : " + 390000
+                  ? "Total Amount To Collected : " + 4800
                   : ""}
               </h5>
             </Col>
@@ -129,7 +142,7 @@ export default function Income() {
               <Col>
                 <Card className="shadow">
                   <CardBody className="pb-0">
-                    <IncomeTable data={collection} />
+                    <CollectionReportTable data={collection} />
                   </CardBody>
                 </Card>
               </Col>

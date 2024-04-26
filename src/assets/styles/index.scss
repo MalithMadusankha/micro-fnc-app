@@ -75,3 +75,8 @@
 .bg-sidebar {
     background-color: #d3e4fc;
 }
+
+.bordered-div {
+    border: 1px solid blue;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+  }

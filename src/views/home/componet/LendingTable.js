@@ -70,7 +70,7 @@ export default function LendingTable({ data }) {
                 >
                   View
                 </Link>
-                <ReLendModal lending={lending} />
+                {/* <ReLendModal lending={lending} /> */}
               </td>
             </tr>
           ))}

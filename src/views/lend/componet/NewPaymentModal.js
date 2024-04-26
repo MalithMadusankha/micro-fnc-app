@@ -79,6 +79,7 @@ export default function NewPaymentModal() {
           </Row>
 
           <div className="d-flex justify-content-end">
+            <Button color="primary"> View Profile</Button>
             <Button
               className="mx-2"
               color="secondary"

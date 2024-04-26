@@ -57,7 +57,6 @@ export default function NewLendForm() {
                 >
                   <option value="">Select collection type</option>
                   <option value="Daily">Daily</option>
-                  <option value="Weekly">Weekly</option>
                   <option value="Monthly">Monthly</option>
                 </Input>
               </FormGroup>

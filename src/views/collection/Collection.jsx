@@ -113,7 +113,7 @@ export default function Collection() {
           {/* Leanding */}
           <Row className="mt-4">
             <Col>
-              <h5> Collection List </h5>
+              <h5> Today Colection Summary </h5>
             </Col>
             <Col>
               <h5 className="text-right text-danger pr-1">

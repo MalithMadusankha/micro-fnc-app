@@ -9,6 +9,7 @@ import NewLending from "./views/lend/NewLending";
 import Collection from "./views/collection/Collection";
 import Income from "./views/otherIncome/Income";
 import Dashboard from "./views/dashboard/Dashboard";
+import CollectionReport from "./views/collection/CollectionReport";
 
 const routes = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const routes = createBrowserRouter([
       {
         path: "collection",
         element: <Collection />,
+      },
+      {
+        path: "report",
+        element: <CollectionReport />,
       },
       {
         path: "other-income",
