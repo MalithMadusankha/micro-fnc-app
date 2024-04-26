@@ -3,7 +3,7 @@ import { Badge, Col, Media, Row, Table } from "reactstrap";
 import { Link } from "react-router-dom";
 import ReLendModal from "../../lend/componet/ReLendModal";
 
-export default function CollectionTable({ data }) {
+export default function CollectionReportTable({ data }) {
   return (
     <>
       <Row className="">
@@ -14,7 +14,7 @@ export default function CollectionTable({ data }) {
       <Table className="align-items-center table-flush" responsive>
         <thead className="thead-light">
           <tr>
-            {/* <th scope="col">Date</th> */}
+            <th scope="col">Date</th>
             <th scope="col">Collection ID</th>
             <th scope="col">Customer</th>
             <th scope="col">Product</th>
@@ -25,7 +25,7 @@ export default function CollectionTable({ data }) {
         <tbody>
           {data.map((lending, key) => (
             <tr key={key}>
-              {/* <td>{lending.date}</td> */}
+              <td>{lending.date}</td>
               <td>{lending.collectionId}</td>
               <td>
                 <div className="d-flex align-items-center">

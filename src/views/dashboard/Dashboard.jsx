@@ -57,7 +57,7 @@ export default function Dashboard() {
                   >
                     <Row className="row-cols-lg-auto g-3 align-items-center">
                       <Col md={8} lg={10}>
-                        <h4 className="text-primary"> Dashboard</h4>
+                        <h4 className="text-primary"> Today Summery</h4>
                       </Col>
 
                       <SearchBarAction

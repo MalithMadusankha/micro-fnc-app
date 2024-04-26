@@ -12,8 +12,8 @@ import {
   CardBody,
 } from "reactstrap";
 // import { CreateRelend } from "../service/RelendService";
-
-export default function ReLendForm({ toggle, setSuccess }) {
+import MobileImg from "../../../assets/img/mobile-1.jpg";
+export default function RecoverSecurityForm({ toggle, setSuccess }) {
   const [relend, setRelend] = useState("29700");
   const [newAmount, setNewAmount] = useState("36000");
   // const [gender, setGender] = useState(1);
@@ -123,32 +123,49 @@ export default function ReLendForm({ toggle, setSuccess }) {
           )
         )}
 
+        <Row className="bg-primary text-white pt-3">
+          <Row>
+            <Col className="text-center">
+              <p className="my-0">Lend ID</p>
+              <h5>1567</h5>
+            </Col>
+            <Col className="text-center">
+              <p className="my-0">Total Amount To Paid</p>
+              <h5>25000</h5>
+            </Col>
+            <Col className="text-center">
+              <p className="my-0">Total Over Due Amount</p>
+              <h5>98</h5>
+            </Col>
+          </Row>
+          <hr />
+          <Row>
+            <Col className="text-center">
+              <p className="my-0">Deal Settel Date</p>
+              <h5>2024-02-15</h5>
+            </Col>
+            <Col className="text-center">
+              <p className="my-0">Deal Expire Date</p>
+              <h5>2024-02-15</h5>
+            </Col>
+            <Col className="text-center">
+              <p className="my-0">Over Due Scinc</p>
+              <h5>2024-02-15</h5>
+            </Col>
+          </Row>
+        </Row>
+
         <Row className="mt-3">
           <Col>
             <FormGroup>
-              <Label className="text-primary" for="blance">
-                Additional Lend Amount*
+              <Label className="text-primary" for="new-amount">
+                Extra hand Over Amount
               </Label>
               <Input
                 type="text"
-                name="blance"
-                id="blance"
+                name="amount"
+                id="amount"
                 placeholder="Enter amount"
-                // value={fullName}
-                // onChange={(e) => setFullName(e.target.value)}
-              />
-            </FormGroup>
-          </Col>
-          <Col>
-            <FormGroup>
-              <Label className="text-primary" for="new-amount">
-                Rate* (Enable for partial)
-              </Label>
-              <Input
-                type="text"
-                name="amount"
-                id="amount"
-                placeholder="Enter rate"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
               />
@@ -160,46 +177,13 @@ export default function ReLendForm({ toggle, setSuccess }) {
           <Col>
             <FormGroup>
               <Label className="text-primary" for="blance">
-                New Interest Amount
+                Note
               </Label>
               <Input
-                type="text"
+                type="textarea"
                 name="blance"
                 id="blance"
-                disabled
-                value={"7000"}
                 // onChange={(e) => setFullName(e.target.value)}
-              />
-            </FormGroup>
-          </Col>
-
-          <Col>
-            <FormGroup>
-              <Label className="text-primary" for="new-amount">
-                Extended Expire Date*
-              </Label>
-              <Input
-                type="date"
-                name="amount"
-                id="amount"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-              />
-            </FormGroup>
-          </Col>
-
-          <Col>
-            <FormGroup>
-              <Label className="text-primary" for="new-amount">
-                Extended Days
-              </Label>
-              <Input
-                type="text"
-                name="amount"
-                id="amount"
-                disabled
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
               />
             </FormGroup>
           </Col>
@@ -207,35 +191,26 @@ export default function ReLendForm({ toggle, setSuccess }) {
 
         <Row>
           <Col>
-            <FormGroup>
-              <Label className="text-primary" for="blance">
-                Blance Amount
-              </Label>
-              <Input
-                type="text"
-                name="blance"
-                id="blance"
-                disabled
-                value={relend}
-                onChange={(e) => setRelend(e.target.value)}
-              />
-            </FormGroup>
+            <Button className="me-3" color="primary">
+              {" "}
+              View Profile
+            </Button>
+
+            {/* <Button color="success"> Done</Button> */}
           </Col>
-          <Col>
-            <FormGroup>
-              <Label className="text-primary" for="new-amount">
-                New Amount To Recover
-              </Label>
-              <Input
-                type="text"
-                name="amount"
-                id="amount"
-                disabled
-                value={newAmount}
-                onChange={(e) => setRelend(e.target.value)}
-              />
-            </FormGroup>
-          </Col>
+        </Row>
+
+        <Row className="mt-4">
+          <h4> Security Details</h4>
+          <Row className="mt-2">
+            <Col className=" d-flex justify-content-center align-items-center w-100 h-100 bordered-div ms-2">
+              <p className="text-center">Registered Security Details</p>
+            </Col>
+
+            <Col>
+              <img className="w-100" src={MobileImg} alt="security" />
+            </Col>
+          </Row>
         </Row>
 
         <Row>
@@ -254,7 +229,7 @@ export default function ReLendForm({ toggle, setSuccess }) {
                 Cancel
               </Button>
               <Button color="success" type="submit">
-                Submit
+                Done
               </Button>
             </div>
           </Col>

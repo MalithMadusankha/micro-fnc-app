@@ -28,7 +28,7 @@ export default function SideBar({ isVisible }) {
                 activeClassName="active"
               >
                 <MdDashboard />{" "}
-                <span className="d-none d-sm-inline">Dashboard</span>
+                <span className="d-none d-sm-inline">Today Summery</span>
               </NavLink>
             </li>
             <li className="nav-item">
@@ -37,7 +37,8 @@ export default function SideBar({ isVisible }) {
                 className="nav-link text-decoration-none align-items-center"
                 activeClassName="active"
               >
-                <FaHome /> <span className="d-none d-sm-inline">Home</span>
+                <FaHome />{" "}
+                <span className="d-none d-sm-inline">Search and Details</span>
               </NavLink>
             </li>
             <li className="nav-item">
@@ -47,7 +48,7 @@ export default function SideBar({ isVisible }) {
                 activeClassName="active"
               >
                 <FaCreditCard />{" "}
-                <span className="d-none d-sm-inline">Lend</span>
+                <span className="d-none d-sm-inline">Today Lend</span>
               </NavLink>
             </li>
             <li className="nav-item">
@@ -57,7 +58,7 @@ export default function SideBar({ isVisible }) {
                 activeClassName="active"
               >
                 <BsFillCollectionFill />{" "}
-                <span className="d-none d-sm-inline">Collection</span>
+                <span className="d-none d-sm-inline">Today Collection</span>
               </NavLink>
             </li>
             <li className="nav-item">
@@ -67,7 +68,17 @@ export default function SideBar({ isVisible }) {
                 activeClassName="active"
               >
                 <FaShop />{" "}
-                <span className="d-none d-sm-inline">Other Income</span>
+                <span className="d-none d-sm-inline">Today Income</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to={`report`}
+                className="nav-link text-decoration-none align-items-center"
+                activeClassName="active"
+              >
+                <BsFillCollectionFill />{" "}
+                <span className="d-none d-sm-inline">Collection Report</span>
               </NavLink>
             </li>
             {/* <li className="nav-item">

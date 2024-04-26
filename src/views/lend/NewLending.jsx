@@ -9,6 +9,7 @@ import ExtranalPartiesComponet from "../home/componet/ExtranalPartiesComponet";
 import CustomerForm from "./componet/CustomerForm";
 import SecurityForn from "./componet/SecurityForn";
 import NewLendForm from "./componet/NewLendForm";
+import InstallmentTable from "../home/componet/InstallmentTable";
 
 export default function NewLending() {
   const [data, setData] = useState(LEANDING_COLLECTION[0]);
@@ -55,10 +56,10 @@ export default function NewLending() {
 
         <Row className="mt-5">
           <Row>
-            <h5> Transaction History</h5>
+            <h5> Installment Shedule</h5>
           </Row>
           <Row className="mt-3">
-            <TransactionTable data={data} />
+            <InstallmentTable data={data} />
           </Row>
         </Row>
       </div>

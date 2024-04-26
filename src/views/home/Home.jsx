@@ -20,6 +20,8 @@ import NotificationComponet from "../../componets/NotificationComponet.js";
 import UserProfileComponet from "../../componets/UserProfileComponet.js";
 import SearchBarAction from "../../componets/SearchBarAction.js";
 import NotificationDetailsComponet from "../../componets/NotificationDetailsComponet.js";
+import ProfileViewModal from "./componet/ProfileViewModal.js";
+import UserLendImage from "../../assets/img/user-lend.jpg";
 
 export default function Home() {
   const { nic } = useParams();
@@ -125,36 +127,135 @@ export default function Home() {
             </Card>
           </Col>
         </Row>
-        <div>
-          {/* Next Collection */}
-          <NextCollectionComponet data={data} lending={lending} />
-          {/* Summery  */}
-          <SummaryComponet data={data} />
-          {/* Leanding */}
-          <Row className="mt-4">
-            <Col>
-              <h5 className="text-primary"> Lending History</h5>
-            </Col>
-            <Col>
-              <h5 className="text-right text-danger pr-1">
-                {data && data.length > 0 ? "Total Lending : " + 15050 : ""}
-              </h5>
-            </Col>
-          </Row>
-          {lending && lending.length > 0 ? (
-            <Row className="m-3 mb-4">
-              <Col>
-                <Card className="shadow">
-                  <CardBody className="pb-0">
-                    <LendingTable data={lending} />
+        {data && data.length > 0 ? (
+          <div>
+            <Row className="mt-3">
+              <Col lg={2}>
+                <Card className="shadow h-100">
+                  <CardBody>
+                    <Row>
+                      <img
+                        src={UserLendImage}
+                        alt="lend-user"
+                        className="h-100"
+                      />
+                    </Row>
+                    <Row>
+                      <ProfileViewModal lending={lending[0]} />
+                    </Row>
                   </CardBody>
                 </Card>
               </Col>
+              <Col>
+                <Row>
+                  <Col className="h-100">
+                    <Card className="shadow h-100">
+                      <CardBody className="">
+                        <Row>
+                          <h5 className="pt-2 text-center"> 08</h5>
+                          <h6 className="text-primary text-center">
+                            Total Lends
+                          </h6>
+                        </Row>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                  <Col className="h-100">
+                    <Card className="shadow h-100">
+                      <CardBody className="">
+                        <Row>
+                          <h5 className="pt-2 text-center"> 02 </h5>
+                          <h6 className="text-primary text-center">
+                            Closed Lends
+                          </h6>
+                        </Row>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                  <Col className="h-100">
+                    <Card className="shadow h-100">
+                      <CardBody className="">
+                        <Row>
+                          <h5 className="pt-2 text-center"> 02 </h5>
+                          <h6 className="text-primary text-center">
+                            Recovered Lends
+                          </h6>
+                        </Row>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                </Row>
+                <Row className="mt-2">
+                  <Col className="h-100">
+                    <Card className="shadow h-100">
+                      <CardBody className="">
+                        <Row>
+                          <h5 className="pt-2 text-center"> 02 </h5>
+                          <h6 className="text-success text-center">
+                            Open Lends{" "}
+                          </h6>
+                        </Row>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                  <Col className="h-100">
+                    <Card className="shadow h-100">
+                      <CardBody className="">
+                        <Row>
+                          <h5 className="text-danger pt-2 text-center"> 02 </h5>
+                          <h6 className="text-danger text-center">
+                            Over Due Lends
+                          </h6>
+                        </Row>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                  <Col className="h-100">
+                    <Card className="shadow h-100">
+                      <CardBody className="">
+                        <Row>
+                          <h5 className="text-danger pt-2 text-center"> 02 </h5>
+                          <h6 className="text-danger text-center">
+                            Over Due Days
+                          </h6>
+                        </Row>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                </Row>
+              </Col>
             </Row>
-          ) : (
-            ""
-          )}
-        </div>
+            {/* Next Collection */}
+            <NextCollectionComponet data={data} lending={lending} />
+            {/* Summery  */}
+            <SummaryComponet data={data} />
+            {/* Leanding */}
+            <Row className="mt-4">
+              <Col>
+                <h5 className="text-primary"> Lending History</h5>
+              </Col>
+              <Col>
+                <h5 className="text-right text-danger pr-1">
+                  {data && data.length > 0 ? "Total Lending : " + 15050 : ""}
+                </h5>
+              </Col>
+            </Row>
+            {lending && lending.length > 0 ? (
+              <Row className="m-3 mb-4">
+                <Col>
+                  <Card className="shadow">
+                    <CardBody className="pb-0">
+                      <LendingTable data={lending} />
+                    </CardBody>
+                  </Card>
+                </Col>
+              </Row>
+            ) : (
+              ""
+            )}
+          </div>
+        ) : null}
+
         <div
           className={`position-absolute w-40 top-23 right-6 ${
             isClickNotification ? "" : "display-n"

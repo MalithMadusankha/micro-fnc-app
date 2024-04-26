@@ -13,7 +13,7 @@ import {
 } from "reactstrap";
 // import { CreateRelend } from "../service/RelendService";
 
-export default function ReLendForm({ toggle, setSuccess }) {
+export default function PartiallySettelForm({ toggle, setSuccess }) {
   const [relend, setRelend] = useState("29700");
   const [newAmount, setNewAmount] = useState("36000");
   // const [gender, setGender] = useState(1);
@@ -123,121 +123,60 @@ export default function ReLendForm({ toggle, setSuccess }) {
           )
         )}
 
-        <Row className="mt-3">
-          <Col>
-            <FormGroup>
-              <Label className="text-primary" for="blance">
-                Additional Lend Amount*
-              </Label>
-              <Input
-                type="text"
-                name="blance"
-                id="blance"
-                placeholder="Enter amount"
-                // value={fullName}
-                // onChange={(e) => setFullName(e.target.value)}
-              />
-            </FormGroup>
+        <Row className="mt-3 ">
+          <Col className=" ">
+            <Card className="shadow h-100">
+              <CardBody className="">
+                <Row>
+                  <h5 className="pt-2 text-center"> 29700</h5>
+                  <h6 className="text-primary text-center">Blance </h6>
+                </Row>
+              </CardBody>
+            </Card>
           </Col>
+          <Col className="">
+            <Card className="shadow h-100">
+              <CardBody className="">
+                <Row>
+                  <h5 className="pt-2 text-center"> 6300 </h5>
+                  <h6 className="text-primary text-center">
+                    Total Recovered Amount
+                  </h6>
+                </Row>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col className="">
+            <Card className="shadow h-100">
+              <CardBody className="">
+                <Row>
+                  <h5 className="pt-2 text-center"> 2850 </h5>
+                  <h6 className="text-danger text-center">
+                    Total Over Dues Amount
+                  </h6>
+                </Row>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+
+        <Row className="mt-4">
           <Col>
             <FormGroup>
-              <Label className="text-primary" for="new-amount">
-                Rate* (Enable for partial)
+              <Label className="text-primary" for="fullName">
+                Note
               </Label>
               <Input
                 type="text"
-                name="amount"
-                id="amount"
-                placeholder="Enter rate"
+                name="fullName"
+                id="fullName"
+                placeholder="Enter note"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
               />
             </FormGroup>
           </Col>
         </Row>
-
-        <Row>
-          <Col>
-            <FormGroup>
-              <Label className="text-primary" for="blance">
-                New Interest Amount
-              </Label>
-              <Input
-                type="text"
-                name="blance"
-                id="blance"
-                disabled
-                value={"7000"}
-                // onChange={(e) => setFullName(e.target.value)}
-              />
-            </FormGroup>
-          </Col>
-
-          <Col>
-            <FormGroup>
-              <Label className="text-primary" for="new-amount">
-                Extended Expire Date*
-              </Label>
-              <Input
-                type="date"
-                name="amount"
-                id="amount"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-              />
-            </FormGroup>
-          </Col>
-
-          <Col>
-            <FormGroup>
-              <Label className="text-primary" for="new-amount">
-                Extended Days
-              </Label>
-              <Input
-                type="text"
-                name="amount"
-                id="amount"
-                disabled
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-              />
-            </FormGroup>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col>
-            <FormGroup>
-              <Label className="text-primary" for="blance">
-                Blance Amount
-              </Label>
-              <Input
-                type="text"
-                name="blance"
-                id="blance"
-                disabled
-                value={relend}
-                onChange={(e) => setRelend(e.target.value)}
-              />
-            </FormGroup>
-          </Col>
-          <Col>
-            <FormGroup>
-              <Label className="text-primary" for="new-amount">
-                New Amount To Recover
-              </Label>
-              <Input
-                type="text"
-                name="amount"
-                id="amount"
-                disabled
-                value={newAmount}
-                onChange={(e) => setRelend(e.target.value)}
-              />
-            </FormGroup>
-          </Col>
-        </Row>
-
         <Row>
           <Col>
             <div

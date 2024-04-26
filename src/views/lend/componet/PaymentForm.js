@@ -100,6 +100,21 @@ export default function PaymentForm() {
                 />
               </FormGroup>
             </Row>
+            <Row>
+              <FormGroup>
+                <Label className="text-primary" for="amount">
+                  Note
+                </Label>
+                <Input
+                  type="textarea"
+                  name="amount"
+                  id="amount"
+                  placeholder="Enter note"
+                  // value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                />
+              </FormGroup>
+            </Row>
           </Col>
 
           <Col>

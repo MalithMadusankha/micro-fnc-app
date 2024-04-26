@@ -1,7 +1,5 @@
 import React from "react";
 import { Card, Col, Row, CardBody, Badge, Button } from "reactstrap";
-import UserLendImage from "../../../assets/img/user-lend.jpg";
-import ProfileViewModal from "./ProfileViewModal";
 export default function NextCollectionComponet({ data, lending }) {
   return (
     <>
@@ -20,49 +18,48 @@ export default function NextCollectionComponet({ data, lending }) {
       </Row>
       <Row className="m-3">
         {data.map((next, key) => (
-          <Col key={key} lg={2}>
-            <Card className="shadow">
+          <Col key={key} md={4} lg={3}>
+            <Card className="shadow h-100">
               <CardBody className="pb-0">
+                <div className="justify-content-center align-item-center">
+                  <Col
+                    className={`${
+                      next.isOverDue ? "bg-danger" : "bg-success"
+                    } text-center text-white`}
+                  >
+                    <h6> {next.jobId}</h6>
+                  </Col>
+                </div>
+                <Row>
+                  <Col className="text-primary">
+                    <h6>Next {next.date}</h6>
+                  </Col>
+                </Row>
                 <Row>
                   <Col>
-                    {next.isOverDue ? (
-                      <Badge color="danger">Over Due</Badge>
-                    ) : (
-                      <Badge color="success">Current</Badge>
-                    )}
+                    <h1
+                      className={
+                        next.isOverDue
+                          ? "text-denger text-right"
+                          : "text-success text-right"
+                      }
+                    >
+                      {" "}
+                      {next.amount}
+                    </h1>
                   </Col>
-                  <Col>
-                    <h1 className="pt-2"> {next.amount}</h1>
-                  </Col>
-                  <Row>
-                    <Col>
-                      <p style={{ fontSize: 13 }}> {next.date}</p>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <p style={{ fontSize: 13 }}> {next.jobId}</p>
-                    </Col>
-                  </Row>
                 </Row>
+                {next.isOverDue ? (
+                  <Row>
+                    <Col className="text-primary">
+                      <h6>2024-02-05</h6>
+                    </Col>
+                  </Row>
+                ) : null}
               </CardBody>
             </Card>
           </Col>
         ))}
-        {lending && lending.length > 0 ? (
-          <Col lg={2}>
-            <Card className="shadow h-100">
-              <CardBody>
-                <Row>
-                  <img src={UserLendImage} alt="lend-user" className="h-100" />
-                </Row>
-                <Row>
-                  <ProfileViewModal lending={lending[0]} />
-                </Row>
-              </CardBody>
-            </Card>
-          </Col>
-        ) : null}
       </Row>
     </>
   );
